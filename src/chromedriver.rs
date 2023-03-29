@@ -58,9 +58,9 @@ impl Chromedriver {
     /// we have to change this to work like `Geckodriver::platform`.
     fn platform() -> Result<String> {
         match std::env::consts::OS {
-            "linux" => Ok(format!("linux{}.tar.gz", Self::pointer_width())),
-            "macos" => Ok(String::from("macos.tar.gz")),
-            "windows" => Ok(format!("win{}.zip", Self::pointer_width())),
+            "linux" => Ok(String::from("linux64.zip")),
+            "macos" => Ok(String::from("mac64.zip")),
+            "windows" => Ok(String::from("win32.zip")),
             other => Err(eyre!(
                 "webdriver-install doesn't support '{}' currently",
                 other
